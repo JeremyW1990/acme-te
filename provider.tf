@@ -8,7 +8,8 @@ terraform {
     organization = "ACME-TE"
 
     workspaces {
-      namname = "acme-web-dev"
+      # namname = "acme-web-dev"
+      # prefix = "acme-web-"
     }
   }
 }
