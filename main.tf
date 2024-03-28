@@ -13,7 +13,6 @@ module "acme_web_ec2_asg_alb" {
   environment       = var.environment
   image_id          = "ami-0bd01824d64912730" # Example AMI ID; replace with a valid one
   instance_type     = "t2.micro"
-  key_name          = "my-key-pair"
   security_group_id = module.vpc.security_group_id
   subnet_ids        = module.vpc.public_subnet_ids
   vpc_id            = module.vpc.vpc_id
