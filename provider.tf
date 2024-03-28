@@ -8,7 +8,7 @@ terraform {
     organization = "ACME-TE"
 
     workspaces {
-      namname = "acme-web-dev-typo"
+      namname = "acme-web-dev"
     }
   }
 }
