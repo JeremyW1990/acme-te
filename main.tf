@@ -10,7 +10,7 @@ module "vpc" {
 module "acme_web_ec2_asg_alb" {
   source = "github.com/JeremyW1990/acme-module-ec2_asg_alb?ref=dev"
 
-  # environment       = "dev"
+  environment       = var.environment
   image_id          = "ami-0bd01824d64912730" # Example AMI ID; replace with a valid one
   instance_type     = "t2.micro"
   key_name          = "my-key-pair"
