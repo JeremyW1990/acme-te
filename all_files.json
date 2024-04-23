@@ -1539,9 +1539,10 @@
             -0.028847863897681236,
             -0.012163868173956871,
             0.01181979849934578
-        ]
+        ],
+        "path": "provider.tf"
     },
-    "secrets_manager.tf": {
+    "secrets.tf": {
         "code": "resource \"aws_secretsmanager_secret\" \"secret_manager_from_AI\" {\n  name = \"secret_manager_from_AI\"\n\n  tags = {\n    owner = \"jeremy\"\n  }\n}",
         "status": "embedded",
         "code_embedding": [
