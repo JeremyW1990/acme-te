@@ -1,4 +1,4 @@
-name: Terraform CI
+name: Terraform Plan Only
 
 on:
   push:
