@@ -1541,7 +1541,7 @@
             0.01181979849934578
         ]
     },
-    "secrets_manager.tf": {
+    "secret_manager.tf": {
         "code": "resource \"aws_secretsmanager_secret\" \"secret_manager_from_CloudAI\" {\n  name = \"secret_manager_from_CloudAI\"\n\n  tags = {\n    owner = \"jeremy\"\n  }\n}",
         "status": "embedded",
         "code_embedding": [
