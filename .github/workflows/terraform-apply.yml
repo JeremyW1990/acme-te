@@ -32,5 +32,6 @@ jobs:
         run: terraform plan
 
       - name: Terraform Apply
+        if: github.ref == 'refs/heads/terraform-apply'
         run: terraform apply -auto-approve
 
