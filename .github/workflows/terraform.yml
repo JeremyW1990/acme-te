@@ -30,6 +30,7 @@ jobs:
       - name: Terraform Plan
         run: terraform plan
 
-      # - name: Terraform Apply
-      #   if: github.ref == 'refs/heads/main'
-      #   run: terraform apply -auto-approve
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/cicd-agent'
+        run: terraform apply
+        # run: terraform apply -auto-approve
