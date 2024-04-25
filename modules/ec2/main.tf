@@ -43,8 +43,8 @@ resource "aws_autoscaling_group" "this" {
 }
 
 resource "aws_alb" "this" {
-  name_prefix = "alb-${var.name_suffix}"
-  subnets     = var.subnet_ids
+  name_prefix     = "alb-"  # Shortened to conform with AWS requirements
+  subnets         = var.subnet_ids
   security_groups = [aws_security_group.ec2_sg.id]
 
   tags = {
