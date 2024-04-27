@@ -1,1 +1,0 @@
-# Empty as we're not using any top-level variables for now
