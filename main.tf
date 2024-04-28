@@ -1,25 +1,24 @@
-module "vpc" {
-  source = "./module/vpc"
+provider "random" {}
 
-  # Optionally, override the defaults from the VPC module
-  vpc_cidr           = "10.0.0.0/16"
-  public_subnet_cidr = "10.0.1.0/24"
+resource "random_pet" "name_postfix" {
+  length    = 1
+  separator = "_"
 }
 
-module "ec2" {
-  source  = "./module/ec2"
-
-  vpc_id     = module.vpc.vpc_id
-  subnet_ids = [module.vpc.public_subnet_id]
-  
-  ami_id         = "ami-0b0ea68c435eb488d"
-  instance_type  = "t2.micro"
-  asg_min_size   = 1
-  asg_max_size   = 3
-  server_port    = 80
+locals {
+  parameter_name = "parameter_from_CloudAI_${random_pet.name_postfix.id}"
 }
 
-output "application_url" {
-  description = "URL of the application load balancer"
-  value       = module.ec2.alb_dns_name
+resource "aws_ssm_parameter" "cloudai_parameter" {
+  name  = local.parameter_name
+  type  = "String"
+  value = "value"
+
+  tags = {
+    owner = "jeremy_wang"
+  }
+}
+
+output "ssm_parameter_name" {
+  value = aws_ssm_parameter.cloudai_parameter.name
 }
