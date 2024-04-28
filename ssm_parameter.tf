@@ -16,4 +16,4 @@ resource "aws_ssm_parameter" "parameter_from_CloudAI" {
   tags = {
     owner = "jeremy_wang"
   }
-}}
+}
