@@ -3,5 +3,5 @@ provider "aws" {
 }
 
 provider "random" {
-  # You may specify a Terraform version here if required
+  # Random provider doesn't require specific configuration
 }
