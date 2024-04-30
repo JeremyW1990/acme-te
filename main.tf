@@ -16,6 +16,7 @@ module "my_ec2" {
   source          = "./module/ec2"
   application_name = "my-app"
   vpc_id           = module.my_vpc.vpc_id
+  vpc_cidr         = "10.0.0.0/16" # The CIDR block must match the VPC's configuration
   ami_id           = "ami-0b0ea68c435eb488d"
   instance_type    = "t3.micro"
   subnets          = module.my_vpc.public_subnets_ids
@@ -24,3 +25,5 @@ module "my_ec2" {
   desired_capacity = 1
   user_data        = file("userdata.sh")
 }
+
+# The output declaration remains unchanged.
