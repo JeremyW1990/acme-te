@@ -16,6 +16,7 @@ resource "aws_autoscaling_group" "app_asg" {
   max_size                = var.asg_max_size
   desired_capacity        = var.asg_desired_capacity
   health_check_type       = "EC2"
+  target_group_arns       = [aws_alb_target_group.app_tg.arn]
   force_delete            = true
   wait_for_capacity_timeout = "0"
 
@@ -24,7 +25,11 @@ resource "aws_autoscaling_group" "app_asg" {
     value               = "cloud-ai-asg-instance"
     propagate_at_launch = true
   }
-}
+
+    lifecycle {
+    create_before_destroy = true
+  }
+  }
 
 resource "aws_security_group" "app_sg" {
   name_prefix = "cloud-ai-app-sg-"
