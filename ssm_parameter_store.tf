@@ -1,7 +1,3 @@
-provider "aws" {
-  region = "us-east-1"
-}
-
 resource "random_id" "name_postfix" {
   byte_length = 2 # generates a 4 character string in hex format
   keepers = {
