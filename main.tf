@@ -1,30 +1,19 @@
 module "vpc" {
-  source            = "./modules/vpc"
-  vpc_cidr          = "10.0.0.0/16"
-  public_subnets_cidr = ["10.0.1.0/24", "10.0.2.0/24"]
-  availability_zones  = ["us-east-1a", "us-east-1b"]
+  source = "./module/vpc"
+
+  vpc_cidr          = var.vpc_cidr
+  public_subnets    = var.public_subnets
+  availability_zones = var.availability_zones
 }
 
 module "ec2" {
-  source            = "./modules/ec2"
-  vpc_id            = module.vpc.vpc_id
-  subnet_ids        = module.vpc.public_subnet_ids
-  ami_id            = "ami-0b0ea68c435eb488d"
-  instance_type     = "t2.micro"
-  user_data         = file("${path.module}/user_data.sh")
-  asg_min_size      = 2
-  asg_max_size      = 5
-  asg_desired_capacity = 3
-}
+  source = "./module/ec2"
 
-output "vpc_id" {
-  value = module.vpc.vpc_id
-}
-
-output "public_subnet_ids" {
-  value = module.vpc.public_subnet_ids
-}
-
-output "alb_dns_name" {
-  value = module.ec2.alb_dns_name
+  ami_id           = var.ami_id
+  instance_type    = var.instance_type
+  subnet_ids       = module.vpc.public_subnets
+  vpc_id           = module.vpc.vpc_id
+  security_group_id = module.vpc.security_group_id
+  asg_min_size     = var.asg_min_size
+  asg_max_size     = var.asg_max_size
 }
