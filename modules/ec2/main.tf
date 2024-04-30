@@ -47,7 +47,7 @@ resource "aws_autoscaling_group" "app_autoscaling_group" {
 }
 
 resource "aws_alb" "app_load_balancer" {
-  name_prefix = "app-alb-"
+  name_prefix = "alb-" # Updated to meet the length constraint
   subnets     = var.subnet_ids
   security_groups = [aws_security_group.app_security_group.id]
 
@@ -58,8 +58,10 @@ resource "aws_alb" "app_load_balancer" {
   }
 }
 
+# ...
+
 resource "aws_alb_target_group" "app_target_group" {
-  name_prefix = "app-tg-"
+  name_prefix = "tg-" # Updated to meet the length constraint
   port        = 80
   protocol    = "HTTP"
   vpc_id      = var.vpc_id
