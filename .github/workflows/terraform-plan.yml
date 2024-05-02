@@ -32,4 +32,8 @@ jobs:
         run: |
           export TF_LOG=DEBUG
           terraform plan
+
+      - name: Terraform Apply
+        if: github.ref == 'refs/heads/cicd-agent'
+        run: terraform apply -auto-approve
       

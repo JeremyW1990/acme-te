@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket     = "cloud-ai-demo-infra"
-    key        = "cloud-ai/terraform.tfstate"
+    key        = "cloud-ai/cicd-agent.tfstate"
     region     = "us-east-1"
     encrypt    = true
     # Optionally enable DynamoDB for state locking
