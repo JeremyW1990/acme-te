@@ -29,7 +29,7 @@ jobs:
         run: terraform init
 
       - name: Terraform Plan
-      run: |
-        export TF_LOG=DEBUG
-        terraform plan
+        run: |
+          export TF_LOG=DEBUG
+          terraform plan
       
