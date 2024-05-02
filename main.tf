@@ -1,3 +1,3 @@
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "my-unique-bucket-name-${random_id.unique_id.hex}"
+  bucket = "my-unique-bucket-name"
 }
