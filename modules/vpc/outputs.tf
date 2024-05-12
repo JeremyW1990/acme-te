@@ -1,14 +1,14 @@
 output "vpc_id" {
-  value       = aws_vpc.example.id
-  description = "The ID of the VPC"
+  description = "The ID of the VPC."
+  value       = aws_vpc.main.id
 }
 
 output "subnet_ids" {
-  value       = aws_subnet.example[*].id
-  description = "The IDs of the subnets"
+  description = "The list of subnet IDs."
+  value       = aws_subnet.main.*.id
 }
 
 output "internet_gateway_id" {
-  value       = aws_internet_gateway.example.id
-  description = "The ID of the Internet Gateway"
+  description = "The ID of the Internet Gateway."
+  value       = aws_internet_gateway.main.id
 }

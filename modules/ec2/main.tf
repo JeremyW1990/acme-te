@@ -19,11 +19,11 @@ resource "aws_security_group" "asg_security_group" {
 }
 
 resource "aws_launch_configuration" "asg_launch_configuration" {
-  name_prefix          = "cloud-ai-launch-configuration-"
-  image_id             = var.ami_id
-  instance_type        = var.instance_type
-  security_groups      = [aws_security_group.asg_security_group.id]
-  user_data            = file("${path.module}/userdata.sh")
+  name_prefix                 = "cloud-ai-launch-configuration-"
+  image_id                    = var.ami_id
+  instance_type               = var.instance_type
+  security_groups             = [aws_security_group.asg_security_group.id]
+  user_data                   = file("${path.module}/userdata.sh")
   associate_public_ip_address = true
 
   lifecycle {
@@ -80,7 +80,7 @@ resource "aws_lb_target_group" "asg_target_group" {
 
 resource "aws_lb_listener" "alb_listener" {
   load_balancer_arn = aws_lb.alb.arn
-  port              = "80"
+  port              = 80
   protocol          = "HTTP"
 
   default_action {

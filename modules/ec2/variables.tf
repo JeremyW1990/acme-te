@@ -11,13 +11,13 @@ variable "subnet_ids" {
 variable "ami_id" {
   description = "The ID of the AMI to use for the EC2 instances"
   type        = string
-  default     = "ami-0b0ea68c435eb488d"
+  default     = "ami-0b0ea68c435eb488d" # Specified AMI ID for EC2 instances
 }
 
 variable "instance_type" {
   description = "The instance type of the EC2 instances"
   type        = string
-  default     = "t3.micro"
+  default     = "t3.micro" # Default instance type for the EC2 instances
 }
 
 variable "asg_min_size" {
@@ -41,5 +41,5 @@ variable "asg_desired_capacity" {
 variable "alb_access_cidr" {
   description = "The CIDR block to allow access to the ALB"
   type        = string
-  default     = "0.0.0.0/0"
+  default     = "0.0.0.0/0" # Default to allow access to the ALB from anywhere
 }
