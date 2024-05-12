@@ -9,7 +9,7 @@ homepage with the message "Auto Deployment from Cloud-AI".
 For each module, ensure the following files are included: main.tf, variables.tf, and outputs.tf.
 
 Additionally, create root files (included: main.tf, variables.tf, and outputs.tf at the project root level) that integrates these two modules to 
-set up the infrastructure. This configuration should invoke the VPC and EC2 modules, ensuring that they work together to deploy the application.
+set up the infrastructure. This configuration should invoke the VPC and EC2 modules, ensuring that they work together to deploy the application to "us-east-1".
 Provide default values for all the variables defined in variables.tf.
 
 Ensure the application can be accessed through the ALB DNS, and that visitors to the site will see the message "Auto Deployment from Cloud-AI" 

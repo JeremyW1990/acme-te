@@ -1,1 +1,0 @@
-# Remove the duplicate AWS provider configuration as it's defined in main.tf
