@@ -1,3 +1,1 @@
-provider "aws" {
-  region = "us-east-1"
-}
+# Remove the duplicate AWS provider configuration as it's defined in main.tf
