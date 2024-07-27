@@ -12,3 +12,8 @@ output "alb_dns_name" {
   description = "The DNS name of the application load balancer"
   value       = module.ec2.load_balancer_dns_name
 }
+
+output "alb_zone_id" {
+  description = "The zone ID of the application load balancer"
+  value       = module.ec2.load_balancer_zone_id
+}
