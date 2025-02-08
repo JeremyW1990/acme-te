@@ -1,31 +1,11 @@
-variable "region" {
-  description = "AWS region to deploy into"
+variable "vpc_id" {
+  description = "The ID of the VPC to deploy resources into"
   type        = string
-  default     = "us-east-1"
 }
 
-variable "vpc_cidr" {
-  description = "CIDR block for the VPC"
-  type        = string
-  default     = "10.0.0.0/16"
-}
-
-variable "vpc_name" {
-  description = "Name of the VPC"
-  type        = string
-  default     = "main-vpc"
-}
-
-variable "public_subnets_cidrs" {
-  description = "List of CIDR blocks for the public subnets"
+variable "subnets" {
+  description = "A list of subnet IDs to deploy resources into"
   type        = list(string)
-  default     = ["10.0.1.0/24", "10.0.2.0/24"]
-}
-
-variable "availability_zones" {
-  description = "List of availability zones to use for subnets"
-  type        = list(string)
-  default     = ["us-east-1a", "us-east-1b"]
 }
 
 variable "ami_id" {

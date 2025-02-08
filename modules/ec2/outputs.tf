@@ -1,4 +1,4 @@
 output "alb_dns_name" {
   description = "DNS name of the application load balancer"
-  value       = module.ec2.alb_dns_name
+  value       = aws_lb.app.dns_name
 }
